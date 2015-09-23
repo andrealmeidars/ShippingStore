@@ -1,8 +1,9 @@
 package helper;
 
+import entity.PayStrategy;
 import entity.Product;
 
-public class ShippingHelper {
+public class ShippingStore {
 	
 	public static double tax(int shippingMethod) {
 		if (shippingMethod == 2) return 0.1;   // FedEx
@@ -10,7 +11,15 @@ public class ShippingHelper {
 		if (shippingMethod == 0) return 0;	   // Free Shipping
 		return 0;
 	}
-	
+
+
+	public static double shipping (Product product, PayStrategy payStrategy){
+			return payStrategy.calculateTax(product);
+	}
+
+
+
+
 	public static double shipping(Product product, int shippingMethod)	{
 		double c;		
 		
@@ -28,7 +37,7 @@ public class ShippingHelper {
 					c = c + 150;
 				if (product.isOverWeight())
 					c = c + 350;
-				break;	
+				break;
 			case 0: // Free
 				c = product.getPrice();
 				break;
