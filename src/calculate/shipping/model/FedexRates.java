@@ -1,17 +1,17 @@
-package PaymentStrategy;
+package calculate.shipping.model;
 
 
 
-import entity.PayStrategy;
+import entity.RatesShipping;
 import entity.Product;
 
-public class FedexPayStrategy implements PayStrategy {
+public class FedexRates implements RatesShipping {
     private static final double TAX_FEDEX = 0.1;
     private static final double FRAGILE_VALUE = 100;
     private static final double OVERWEIGTH_VALUE = 200;
 
 
-    public double calculateTax(Product product){
+    public double calculateRates(Product product){
         double valueToPay = product.getPrice() * TAX_FEDEX;
 
         if (product.isFragile()) {
@@ -23,13 +23,6 @@ public class FedexPayStrategy implements PayStrategy {
         }
         return valueToPay;
     }
-
-
-    public double getValueTax(){
-        return TAX_FEDEX;
-    }
-
-
 
 
 
