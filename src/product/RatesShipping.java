@@ -1,4 +1,4 @@
-package entity;
+package product;
 
 
 public interface RatesShipping {

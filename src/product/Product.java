@@ -1,4 +1,4 @@
-package entity;
+package product;
 
 public class Product {
 	private double price;
