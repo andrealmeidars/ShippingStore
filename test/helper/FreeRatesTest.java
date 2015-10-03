@@ -1,7 +1,7 @@
 package helper;
 
-import calculate.shipping.model.FreeRates;
-import entity.Product;
+import calculate.shipping.rules.FreeRates;
+import product.Product;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

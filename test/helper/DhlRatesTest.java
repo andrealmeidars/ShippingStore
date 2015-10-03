@@ -1,8 +1,8 @@
 package helper;
 
 
-import calculate.shipping.model.DhlRates;
-import entity.Product;
+import calculate.shipping.rules.DhlRates;
+import product.Product;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
