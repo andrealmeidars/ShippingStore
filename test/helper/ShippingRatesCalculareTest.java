@@ -39,7 +39,11 @@ public class ShippingRatesCalculareTest {
         assertThat(shippingRatesCalculate.calculateShippingRates(new Product(2.0, true, true), RateType.FEDEX), is(300.2));
     }
 
-
+    @Test
+    public void ifShippingRatesCalculateReturnCorrectValueWithFreeSipping(){
+        ShippingRatesCalculate shippingRatesCalculate = new ShippingRatesCalculate();
+        assertThat(shippingRatesCalculate.calculateShippingRates(new Product(2.0, true, true), RateType.FREE), is(2.0));
+    }
 
 
 
