@@ -23,10 +23,7 @@ public class FedexRates implements ShippingRates {
         return value;
     }
 
-    public String returnTypeShippping(){
-        return "Fedex";
 
-    }
 
 
 }
