@@ -33,6 +33,14 @@ public class ShippingRatesCalculareTest {
         assertThat(shippingRatesCalculate.calculateShippingRates(new Product(2.0, true, true), RateType.DHL), is(500.5));
      }
 
+    @Test
+    public void ifShippingRatesCalculateReturnCorrectValueWithFedexSipping(){
+        ShippingRatesCalculate shippingRatesCalculate = new ShippingRatesCalculate();
+        assertThat(shippingRatesCalculate.calculateShippingRates(new Product(2.0, true, true), RateType.FEDEX), is(300.2));
+    }
+
+
+
 
 
 }
