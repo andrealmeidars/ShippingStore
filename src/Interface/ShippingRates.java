@@ -1,4 +1,4 @@
-package calculate.shipping.rules;
+package Interface;
 
 
 import product.Product;
