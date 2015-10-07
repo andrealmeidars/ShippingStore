@@ -1,15 +1,17 @@
 package helper;
 
-import org.junit.Assert;
+import calculate.shipping.rules.RateType;
 import org.junit.Test;
 import product.Product;
 import shipping.calculate.ShippingRatesCalculate;
 
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 
 public class ShippingRatesCalculareTest {
     private MyProduct myProduct;
+
 
 
 
@@ -23,15 +25,14 @@ public class ShippingRatesCalculareTest {
             super(price, isFragile, isOverWeight);
         }
 
-//     @Test
-//        public void ifShippingRatesCalculateAcceptProduct()throws Exception{
-//         ShippingRatesCalculate shippingRatesCalculate = new ShippingRatesCalculate();
-//         assertThat(shippingRatesCalculate.calculateShippingRates(myProduct), not(null));
-//
-//
-//     }
+     }
+
+  @Test
+    public void ifShippingRatesCalculateReturnCorrectValueWithDhlSipping(){
+        ShippingRatesCalculate shippingRatesCalculate = new ShippingRatesCalculate();
+        assertThat(shippingRatesCalculate.calculateShippingRates(new Product(2.0, true, true), RateType.DHL), is(500.5));
+     }
 
 
 
-    }
 }
