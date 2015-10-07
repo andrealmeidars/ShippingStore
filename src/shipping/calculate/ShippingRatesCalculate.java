@@ -2,28 +2,28 @@ package shipping.calculate;
 
 
 
+import calculate.shipping.rules.DhlRates;
 import calculate.shipping.rules.FedexRates;
-import printer.Printer;
+import calculate.shipping.rules.RateType;
 import product.Product;
 
 public class ShippingRatesCalculate {
-    private Printer printer;
 
-
-    public ShippingRatesCalculate(){
-
-        this.printer = new Printer();
+    public ShippingRatesCalculate() {
     }
 
 
     public double calculateShippingRates(Product product, RateType rateType) {
 
-        if (rateType.equals(RateType.FEDEX)) {
+        if (rateType.equals(rateType.FEDEX)) {
             return new FedexRates().calculateRates(product);
+        } else if  (rateType.equals(rateType.DHL)){
+            return  new DhlRates().calculateRates(product);
+        }else if (rateType.equals(rateType.FREE)){
+            return  new FedexRates().calculateRates(product);
         }
-    
-
-
+        return 0;
+    }
 
 
 }
