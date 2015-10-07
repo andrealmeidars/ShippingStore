@@ -15,19 +15,16 @@ public class DhlRates implements ShippingRates {
         double value = product.getPrice() * TAX_DHL;
 
         if (product.isFragile()) {
-            value = value + FRAGILE_VALUE;
+            value += FRAGILE_VALUE;
         }
 
         if(product.isOverWeight()) {
-            value = value + OVERWEIGTH_VALUE;
+            value += OVERWEIGTH_VALUE;
         }
         return value;
     }
 
-    public String returnTypeShippping(){
-        return "DHL";
 
-    }
 
 
 
