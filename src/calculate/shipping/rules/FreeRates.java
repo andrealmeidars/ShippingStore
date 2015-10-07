@@ -9,12 +9,6 @@ public class FreeRates implements ShippingRates {
         return product.getPrice();
     }
 
-    public String returnTypeShippping(){
-        return "FreeShipping";
-
-    }
-
-
 
 
 }
