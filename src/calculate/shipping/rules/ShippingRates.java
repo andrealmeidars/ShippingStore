@@ -5,5 +5,5 @@ import product.Product;
 
 public interface ShippingRates {
     double calculateRates(Product product);
-    String returnTypeShippping();
+
 }
