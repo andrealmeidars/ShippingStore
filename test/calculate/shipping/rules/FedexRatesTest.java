@@ -40,7 +40,7 @@ public class FedexRatesTest {
 
 
     @Test
-    public void calculatesIfProductIsFragile(){
+    public void calculateIfProductIsFragile(){
         assertThat(fedexRates.calculateRates(this.productIsFragileValue), is(100.2));
     }
 
