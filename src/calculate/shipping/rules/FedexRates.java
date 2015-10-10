@@ -2,6 +2,7 @@ package calculate.shipping.rules;
 
 
 
+import Interface.ShippingRates;
 import product.Product;
 
 public class FedexRates implements ShippingRates {

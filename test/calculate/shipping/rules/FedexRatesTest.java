@@ -1,4 +1,4 @@
-package helper;
+package calculate.shipping.rules;
 
 import calculate.shipping.rules.FedexRates;
 import product.Product;
@@ -8,36 +8,26 @@ import static org.junit.Assert.assertThat;
 
 
 public class FedexRatesTest {
-    private Product productTaxValue;
     private Product productIsFragileValue;
     private Product productIsOverWeigth;
 
 
-    public class MyProduct extends Product{
-
-        public MyProduct(double price, boolean isFragile, boolean isOverWeight) {
-            super(price, isFragile, isOverWeight);
-        }
-    }
-
-
     public FedexRatesTest(){
-        this.productTaxValue = new MyProduct(2.0, false, false);
-        this.productIsFragileValue = new MyProduct(2.0, true, false);
-        this.productIsOverWeigth = new MyProduct(2.0, false, true);
+        this.productIsFragileValue = new Product(2.0, true, false);
+        this.productIsOverWeigth = new Product(2.0, false, true);
 
     }
-
 
     @Test
     public void ifCalculateFedexRateValueIsCorrect(){
         FedexRates fedexRates = new FedexRates();
-        assertThat(fedexRates.calculateRates(this.productTaxValue), is(0.2));
+        Product productTaxValue = new Product(2.0, false, false);
+        assertThat(fedexRates.calculateRates(productTaxValue), is(0.2));
     }
 
 
     @Test
-    public void ifCalculateFedexFragileValueIsCorrect(){
+    public void calculatesIfProductIsFragile(){
         FedexRates fedexRates = new FedexRates();
         assertThat(fedexRates.calculateRates(this.productIsFragileValue), is(100.2));
     }

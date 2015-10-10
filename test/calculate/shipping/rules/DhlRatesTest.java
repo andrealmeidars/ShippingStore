@@ -1,7 +1,9 @@
-package helper;
+package calculate.shipping.rules;
 
 
 import calculate.shipping.rules.DhlRates;
+import calculate.shipping.rules.FedexRates;
+import org.junit.Before;
 import product.Product;
 import org.junit.Test;
 
@@ -9,43 +11,40 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class DhlRatesTest {
-    private MyProduct productTaxValue;
-    private MyProduct productIsFragileValue;
-    private MyProduct productIsOverWeigth;
+
+    DhlRates dhlRates;
 
 
+    private Product productTaxValue;
+    private Product productIsFragileValue;
+    private Product productIsOverWeigth;
 
-    public class MyProduct extends Product{
+    @Before
+    public void setUp() throws Exception {
+        dhlRates = new DhlRates();
 
-        public MyProduct(double price, boolean isFragile, boolean isOverWeight) {
-            super(price, isFragile, isOverWeight);
-        }
     }
 
-
     public DhlRatesTest(){
-        this.productTaxValue = new MyProduct(2.0, false, false);
-        this.productIsFragileValue = new MyProduct(2.0, true, false);
-        this.productIsOverWeigth = new MyProduct(2.0, false, true);
+        this.productTaxValue = new Product(2.0, false, false);
+        this.productIsFragileValue = new Product(2.0, true, false);
+        this.productIsOverWeigth = new Product(2.0, false, true);
     }
 
 
     @Test
     public void ifCalculateDhlRateValueIsCorrect(){
-        DhlRates dhlRates = new DhlRates();
         assertThat(dhlRates.calculateRates(this.productTaxValue), is(0.5));
     }
 
 
     @Test
     public void ifCalculateDhlFragileValueIsCorrect(){
-        DhlRates dhlRates = new DhlRates();
         assertThat(dhlRates.calculateRates(this.productIsFragileValue), is(150.5));
     }
 
     @Test
     public void ifCalulateDhlOverWeigthValueIsCorrect(){
-        DhlRates dhlRates = new DhlRates();
         assertThat(dhlRates.calculateRates(this.productIsOverWeigth), is(350.5));
     }
 }
