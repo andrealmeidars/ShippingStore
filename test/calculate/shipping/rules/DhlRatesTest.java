@@ -1,8 +1,6 @@
 package calculate.shipping.rules;
 
 
-import calculate.shipping.rules.DhlRates;
-import calculate.shipping.rules.FedexRates;
 import org.junit.Before;
 import product.Product;
 import org.junit.Test;
@@ -33,18 +31,18 @@ public class DhlRatesTest {
 
 
     @Test
-    public void ifCalculateDhlRateValueIsCorrect(){
+    public void returnTaxDhlValue(){
         assertThat(dhlRates.calculateRates(this.productTaxValue), is(0.5));
     }
 
 
     @Test
-    public void ifCalculateDhlFragileValueIsCorrect(){
+    public void calculateIfProductIsFragile(){
         assertThat(dhlRates.calculateRates(this.productIsFragileValue), is(150.5));
     }
 
     @Test
-    public void ifCalulateDhlOverWeigthValueIsCorrect(){
+    public void calculateIfProductIsOverHeigth(){
         assertThat(dhlRates.calculateRates(this.productIsOverWeigth), is(350.5));
     }
 }
