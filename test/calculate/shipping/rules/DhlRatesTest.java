@@ -42,7 +42,7 @@ public class DhlRatesTest {
     }
 
     @Test
-    public void calculateIfProductIsOverHeigth(){
+    public void calculateIfProductIsOverWeigth(){
         assertThat(dhlRates.calculateRates(this.productIsOverWeigth), is(350.5));
     }
 }
